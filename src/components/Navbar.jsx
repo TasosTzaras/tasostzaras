@@ -15,34 +15,34 @@ export default function Navbar({ darkMode, setDarkMode }) {
             <div className="nav-links">
                 {/* Projects dropdown */}
                 <div
-    className="nav-dropdown"
-    onMouseEnter={() => setDropdownOpen(true)}
-    onMouseLeave={() => setDropdownOpen(false)}
->
-    <button
-        className="nav-btn"
-        onClick={() => setDropdownOpen(!dropdownOpen)}
-    >
-        Projects
-    </button>
-    {dropdownOpen && (
-        <div className="dropdown-menu">
-            {/* Currency Converter as first item */}
-            <Link to="/projects/currency-converter" className="dropdown-item">
-                Currency Converter
-            </Link>
-            <Link to="/projects/weather-app" className="dropdown-item">
-      Weather App
-  </Link>
-            <Link to="/projects/project3" className="dropdown-item">
-                Project 3
-            </Link>
-            <Link to="/projects/project4" className="dropdown-item">
-                Project 4
-            </Link>
-        </div>
-    )}
-</div>
+                    className="nav-dropdown"
+                    onMouseEnter={() => setDropdownOpen(true)}
+                    onMouseLeave={() => setDropdownOpen(false)}
+                >
+                    <button
+                        className="nav-btn"
+                        onClick={() => setDropdownOpen(!dropdownOpen)}
+                    >
+                        Projects
+                    </button>
+                    {dropdownOpen && (
+                        <div className="dropdown-menu">
+                            {/* Currency Converter as first item */}
+                            <Link to="/projects/currency-converter" className="dropdown-item">
+                                Currency Converter
+                            </Link>
+                            <Link to="/projects/weather-app" className="dropdown-item">
+                                Weather App
+                            </Link>
+                            <Link to="/projects/moviesdb" className="dropdown-item">
+                                Movies' Data Extraction
+                            </Link>
+                            {/* <Link to="/projects/project4" className="dropdown-item">
+                                Project 4
+                            </Link> */}
+                        </div>
+                    )}
+                </div>
 
                 {/* Contact button */}
                 <Link to="/contact" className="nav-btn">
