@@ -1,9 +1,35 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react'; // <-- ADDED useEffect and useRef
 import './Navbar.css';
 
 export default function Navbar({ darkMode, setDarkMode }) {
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false); // ✅ for burger menu
+
+    // Create a reference to the dropdown container
+    const dropdownRef = useRef(null);
+
+    const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+    const toggleMenu = () => setMenuOpen(!menuOpen);
+
+    // Effect to handle clicks outside the dropdown menu
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            // If the dropdown is open AND the click target is NOT inside the dropdown
+            if (dropdownOpen && dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setDropdownOpen(false);
+            }
+        };
+
+        // Attach the listener to the document body
+        document.addEventListener("mousedown", handleClickOutside);
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [dropdownOpen]); // Re-run effect when dropdownOpen state changes
+
 
     return (
         <nav className="navbar">
@@ -12,34 +38,40 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 {"{Hello Friend}."}
             </Link>
 
-            <div className="nav-links">
+            {/* Burger icon for mobile */}
+            <div
+                className={`burger ${menuOpen ? 'open' : ''}`}
+                onClick={toggleMenu}
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            {/* Nav links (toggle visibility on mobile) */}
+            <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
                 {/* Projects dropdown */}
                 <div
-                    className="nav-dropdown"
-                    onMouseEnter={() => setDropdownOpen(true)}
-                    onMouseLeave={() => setDropdownOpen(false)}
+                    className={`nav-dropdown ${dropdownOpen ? 'open' : ''}`}
+                    ref={dropdownRef} // <-- ATTACHED REF
                 >
                     <button
                         className="nav-btn"
-                        onClick={() => setDropdownOpen(!dropdownOpen)}
+                        onClick={toggleDropdown}
                     >
                         Projects
                     </button>
                     {dropdownOpen && (
                         <div className="dropdown-menu">
-                            {/* Currency Converter as first item */}
                             <Link to="/projects/currency-converter" className="dropdown-item">
-                                Currency Converter
+                                💵 Currency Converter
                             </Link>
                             <Link to="/projects/weather-app" className="dropdown-item">
-                                Weather App
+                                ☀️ Weather App
                             </Link>
                             <Link to="/projects/moviesdb" className="dropdown-item">
-                                Movies' Data Extraction
+                                🎬 Movies' Data Extraction
                             </Link>
-                            {/* <Link to="/projects/project4" className="dropdown-item">
-                                Project 4
-                            </Link> */}
                         </div>
                     )}
                 </div>

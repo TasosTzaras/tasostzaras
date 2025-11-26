@@ -9,7 +9,7 @@ export default function Home() {
 
             {/* Full-width info boxes */}
             <div className="full-width-box info-box">
-                <h3>Thesis</h3>
+                <h3>Thesiskjbasdfjlik</h3>
                 <p>
                     In my thesis on target identification in drug discovery using machine learning, I focused on identifying
                     viable

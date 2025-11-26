@@ -1,10 +1,28 @@
+import { useState } from 'react'; // <-- ADDED
 import './ProfileBox.css';
 import profilePic from '../assets/DSC_0085111.JPEG';
 
 export default function ProfileBox() {
+    // State to track if the box is flipped
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    // Function to toggle the flipped state
+    const handleFlip = () => {
+        setIsFlipped(prev => !prev);
+    };
+
     return (
-        <div className="profile-box">
-            <div className="box-inner">
+        // Added onClick, onKeyPress, tabIndex, and role for click-to-flip and accessibility
+        <div 
+            className="profile-box" 
+            onClick={handleFlip}
+            onKeyPress={(e) => { if (e.key === 'Enter' || e.key === ' ') handleFlip(); }}
+            tabIndex="0" 
+            role="button" 
+            aria-label="Flip profile box for more information"
+        >
+            {/* Conditionally apply the 'flipped' class to trigger the animation */}
+            <div className={`box-inner ${isFlipped ? 'flipped' : ''}`}>
                 {/* Front side */}
                 <div className="box-front">
                     <img src={profilePic} alt="Profile" className="profile-pic" />
@@ -13,10 +31,11 @@ export default function ProfileBox() {
                         Hi! I’m a passionate developer who loves building React apps.
                         I enjoy learning new technologies and creating clean, responsive interfaces.
                     </p>
-                    <span className="flip-hint">Turn me over ↻</span> {/* Hint */}
+                    {/* Updated hint text based on state */}
+                    <span className="flip-hint">{isFlipped ? 'Turn me back ↺' : 'Turn me over ↻'}</span> 
                 </div>
 
-                {/* Back side */}
+                {/* Back side (content remains the same) */}
                 <div className="box-back">
                     <h3>More About Me</h3>
                     <p>

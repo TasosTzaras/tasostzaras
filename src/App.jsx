@@ -6,6 +6,7 @@ import Projects from './pages/Projects'; // your existing projects page
 import CurrencyConverter from './pages/CurrencyConverter'; // new currency converter page
 import './App.css';
 import WeatherApp from './pages/WeatherApp'; // import the new component
+import MoviesDB from './pages/MoviesDB';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -27,6 +28,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/currency-converter" element={<CurrencyConverter />} />
           <Route path="/projects/weather-app" element={<WeatherApp />} /> {/* new route */}
+          <Route path="/projects/moviesdb" element={<MoviesDB />} /> {/* new route */}
         </Routes>
       </div>
     </Router>

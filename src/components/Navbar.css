@@ -37,17 +37,17 @@ body.dark-mode .navbar {
   display: flex;
   gap: 15px;
   position: relative;
-  align-items: center; /* center all buttons vertically */
+  align-items: center;
 }
 
 /* --- Regular Buttons --- */
 .nav-btn {
   display: flex;
-  align-items: center;     /* vertical center */
-  justify-content: center; /* horizontal center */
-  padding: 0 1rem;         /* horizontal padding only */
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
   font-size: 1rem;
-  height: 40px;            /* consistent height */
+  height: 40px;
   border: none;
   border-radius: 8px;
   background-color: #f0f0f0;
@@ -59,16 +59,16 @@ body.dark-mode .navbar {
 }
 
 .nav-btn:hover {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode .nav-btn {
-  background-color: rgba(255,255,255,0.15);
+  background-color: rgba(255, 255, 255, 0.15);
   color: white;
 }
 
 body.dark-mode .nav-btn:hover {
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .toggle-btn {
@@ -79,23 +79,11 @@ body.dark-mode .nav-btn:hover {
 .nav-dropdown {
   position: relative;
   display: flex;
-  align-items: center;  /* vertical align */
-  height: 40px;         /* match nav-btn height */
+  align-items: center;
+  height: 40px;
 }
 
-/* --- Dropdown Button (Projects) --- */
-.nav-dropdown .nav-btn {
-  display: flex;
-  align-items: center;      /* center text vertically */
-  justify-content: center;  /* center horizontally */
-  height: 100%;             /* fill nav-dropdown height */
-  padding: 0 1rem;
-  border-radius: 8px;
-  background-color: #f0f0f0;
-  color: #000;
-}
-
-/* Arrow for dropdown button */
+/* --- Dropdown Button --- */
 .nav-dropdown .nav-btn::after {
   content: " ▾";
   margin-left: 5px;
@@ -113,7 +101,7 @@ body.dark-mode .nav-btn:hover {
   left: 0;
   background-color: #f0f0f0;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   min-width: 160px;
@@ -129,35 +117,128 @@ body.dark-mode .nav-btn:hover {
 }
 
 .dropdown-item:hover {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
-/* --- Dark Mode Dropdown --- */
 body.dark-mode .dropdown-menu {
-  background-color: rgba(255,255,255,0.15);
-  box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode .dropdown-item:hover {
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* --- Responsive Adjustments --- */
+/* --- Burger Menu --- */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.burger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .burger span {
+  background-color: #fff;
+}
+
+.burger.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(6px);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-6px);
+}
+
+/* --- Mobile View --- */
 @media (max-width: 768px) {
+  /* --- Burger Menu --- */
+  .burger {
+    display: flex;
+  }
+
+  /* --- Nav Links Container (Mobile Menu) --- */
   .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
     flex-direction: column;
-    gap: 10px;
-  }
-  .nav-btn {
+    align-items: center;
+    gap: 1rem;
     width: 100%;
-    height: 40px;
+    /* Revert padding back to normal, the dropdown will push items down now */
+    padding: 1rem 0; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-200%);
+    transition: transform 0.3s ease;
   }
+  
+  .nav-links.active {
+    transform: translateY(0);
+  }
+
+  body.dark-mode .nav-links {
+    background-color: rgba(0, 31, 77, 0.95);
+  }
+  
+  /* --- Dropdown Container (Projects Button) --- */
   .nav-dropdown {
+    /* Set to static so it flows naturally in the column */
+    position: static; 
+    width: 100%; 
+    justify-content: center;
     height: auto;
   }
+
+  /* --- Dropdown Menu (The list of project links) --- */
   .dropdown-menu {
-    position: static;
+    /* CRITICAL FIX: Set position to static to push elements down */
+    position: static; 
+    
+    /* Center the content */
+    align-items: center; 
+    
+    /* Make it stretch to the width of the navigation */
+    width: 100%; 
+    
+    /* Remove unnecessary mobile styling that caused overlap */
     box-shadow: none;
     border-radius: 0;
+    
+    /* Use transparent background to blend with the main menu */
+    background-color: transparent; 
+    z-index: auto;
+    
+    /* Add a little padding to the top for separation */
+    padding-top: 0.5rem; 
+  }
+  
+  body.dark-mode .dropdown-menu {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .dropdown-item {
+    text-align: center;
+    width: 100%;
+    /* Ensure the links themselves are block-level to take up full width */
+    display: block; 
+    /* Remove padding to make the list look cleaner */
+    padding: 0.25rem 1rem; 
   }
 }
+

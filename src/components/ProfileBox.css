@@ -3,6 +3,7 @@
     height: 380px;
     perspective: 1000px;
     margin: 2rem auto;
+    cursor: pointer; /* <-- Added cursor to indicate interactivity */
 }
 
 .box-inner {
@@ -11,11 +12,13 @@
     height: 100%;
     transition: transform 0.8s;
     transform-style: preserve-3d;
+    
+    left: 50%;
+    transform: translateX(-50%); 
 }
 
-/* Flip animation */
-.profile-box:hover .box-inner {
-    transform: rotateY(180deg);
+.box-inner.flipped {
+    transform: translateX(-50%) rotateY(180deg); 
 }
 
 .box-front,

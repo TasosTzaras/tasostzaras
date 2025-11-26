@@ -8,12 +8,14 @@ export default function WeatherApp() {
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState("");
 
+  // Function to get local time from timezone offset
   const getLocalTime = (offset) => {
     let utc = new Date().getTime() + new Date().getTimezoneOffset() * 60000;
     let localTime = new Date(utc + offset * 1000);
     return localTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
   };
 
+  // Fetch weather data from OpenWeatherMap API
   const searchWeather = async (cityName) => {
     try {
       const response = await fetch(
@@ -51,7 +53,15 @@ export default function WeatherApp() {
 
   return (
     <div className="weather-app">
-      <h2>Weather App</h2>
+      <h2>☀️Weather App</h2>
+
+      {/* Explanatory text */}
+      <p className="description">
+        Welcome! This React and JavaScript-based app lets you check the current weather for any city in the world.
+        It fetches live weather data using the OpenWeatherMap API, including temperature, humidity, weather condition,
+        and local time. Just type in a city name and click "Search" to get the latest weather info instantly.
+      </p>
+
       <form onSubmit={handleSubmit} className="weather-form">
         <input
           type="text"
@@ -61,7 +71,9 @@ export default function WeatherApp() {
         />
         <button type="submit">Search</button>
       </form>
+
       {error && <p className="error">{error}</p>}
+
       {weather && (
         <div className="weather-results">
           <h3>{weather.name}</h3>
