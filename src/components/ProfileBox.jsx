@@ -13,12 +13,12 @@ export default function ProfileBox() {
 
     return (
         // Added onClick, onKeyPress, tabIndex, and role for click-to-flip and accessibility
-        <div 
-            className="profile-box" 
+        <div
+            className="profile-box"
             onClick={handleFlip}
             onKeyPress={(e) => { if (e.key === 'Enter' || e.key === ' ') handleFlip(); }}
-            tabIndex="0" 
-            role="button" 
+            tabIndex="0"
+            role="button"
             aria-label="Flip profile box for more information"
         >
             {/* Conditionally apply the 'flipped' class to trigger the animation */}
@@ -28,11 +28,11 @@ export default function ProfileBox() {
                     <img src={profilePic} alt="Profile" className="profile-pic" />
                     <h2>Tasos Tzaras</h2>
                     <p>
-                        Hi! I’m a passionate developer who loves building React apps.
+                        Hi! I’m a passionate Machine Learning Engineer and Software Developer who loves programming pretty much everything.
                         I enjoy learning new technologies and creating clean, responsive interfaces.
                     </p>
                     {/* Updated hint text based on state */}
-                    <span className="flip-hint">{isFlipped ? 'Turn me back ↺' : 'Turn me over ↻'}</span> 
+                    <span className="flip-hint">{isFlipped ? 'Turn me back ↺' : 'Turn me over ↻'}</span>
                 </div>
 
                 {/* Back side (content remains the same) */}

@@ -1,0 +1,159 @@
+/* --- Main Layout --- */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to the top of the viewport */
+    min-height: calc(100vh - 60px); /* Fill screen minus navbar height */
+    padding: 2rem 1rem;
+    background-color: var(--page-bg, #f4f4f9);
+}
+
+body.dark-mode .contact-container {
+    background-color: var(--dark-bg, #121212);
+}
+
+.contact-box {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: var(--box-bg, #fff);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .contact-box {
+    background-color: var(--dark-box, #1e1e1e);
+    color: #f5f5f5;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Header and Intro Text --- */
+.contact-header {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #0077ff; /* Primary accent color */
+}
+
+body.dark-mode .contact-header {
+    color: #66aaff;
+}
+
+.contact-intro {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--text-color, #555);
+}
+
+body.dark-mode .contact-intro {
+    color: #bbb;
+}
+
+/* --- Contact Methods Grid --- */
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* --- Individual Contact Cards --- */
+.contact-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    cursor: pointer;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .contact-card:hover {
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+}
+
+.contact-card h3 {
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+.contact-card p {
+    flex-grow: 1; /* Makes paragraphs take up remaining space */
+    font-size: 0.95rem;
+    color: var(--text-color, #777);
+    margin-bottom: 1rem;
+}
+
+body.dark-mode .contact-card p {
+    color: #ccc;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    align-self: flex-start;
+}
+
+/* --- Specific Card Styling --- */
+
+/* LinkedIn */
+.contact-card.linkedin {
+    background-color: #e6f2ff;
+    border-left: 5px solid #0077b5;
+}
+.contact-card.linkedin .contact-btn {
+    background-color: #0077b5;
+    color: white;
+}
+body.dark-mode .contact-card.linkedin {
+    background-color: #0f2a41;
+}
+
+/* Email */
+.contact-card.email-me {
+    background-color: #fff0f0;
+    border-left: 5px solid #d93025;
+}
+.contact-card.email-me .contact-btn {
+    background-color: #d93025;
+    color: white;
+}
+body.dark-mode .contact-card.email-me {
+    background-color: #311d1d;
+}
+
+/* GitHub */
+.contact-card.github {
+    background-color: #f0f0f0;
+    border-left: 5px solid #333;
+}
+.contact-card.github .contact-btn {
+    background-color: #333;
+    color: white;
+}
+body.dark-mode .contact-card.github {
+    background-color: #262626;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 600px) {
+    .contact-box {
+        padding: 1.5rem;
+    }
+
+    .contact-header {
+        font-size: 2rem;
+    }
+}
