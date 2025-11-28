@@ -53,7 +53,7 @@ export default function WeatherApp() {
 
   return (
     <div className="weather-app">
-      <h2>☀️Weather App</h2>
+      <h2><i className="bi bi-cloud-sun"></i>Weather App</h2>
 
       {/* Explanatory text */}
       <p className="description">

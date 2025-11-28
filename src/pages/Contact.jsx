@@ -2,7 +2,7 @@ import './Contact.css';
 
 export default function Contact() {
     // Replace these with your actual contact details
-    const emailAddress = "anastasiostzaras@example.com";
+    const emailAddress = "anastasiostzaras@gmail.com";
     const githubLink = "https://github.com/TasosTzaras";
     const linkedinLink = "https://www.linkedin.com/in/tasos-tzaras-04910b213/";
 
@@ -15,7 +15,7 @@ export default function Contact() {
         <div className="contact-container">
             <div className="contact-box">
                 <h1 className="contact-header">
-                    Oh, so you want to contact me? 📬
+                    Oh, so you want to contact me? <i className="bi bi-send"></i>
                 </h1>
 
                 <p className="contact-intro">
@@ -30,7 +30,7 @@ export default function Contact() {
                         rel="noopener noreferrer"
                         className="contact-card linkedin"
                     >
-                        <h3>1. The Professional Chat 💼</h3>
+                        <h3>1. The Professional Chat <i className="bi bi-briefcase"></i></h3>
                         <p>For serious business, collaborations, or a virtual coffee. Let's connect!</p>
                         <span className="contact-btn">LinkedIn</span>
                     </a>
@@ -43,7 +43,7 @@ export default function Contact() {
                         tabIndex="0"
                         onKeyPress={(e) => { if (e.key === 'Enter' || e.key === ' ') handleEmailClick(); }}
                     >
-                        <h3>2. The Classic Message 📧</h3>
+                        <h3>2. The Classic Message <i className="bi bi-envelope"></i></h3>
                         <p>Got a detailed question or a project pitch? Send a good old-fashioned email.</p>
                         <span className="contact-btn">{emailAddress}</span>
                     </div>
@@ -55,7 +55,7 @@ export default function Contact() {
                         rel="noopener noreferrer"
                         className="contact-card github"
                     >
-                        <h3>3. The Code Whisperer 🤖</h3>
+                        <h3>3. The Code Whisperer <i className="bi bi-github"></i></h3>
                         <p>Want to check out my latest repos or report a bug? Meet me on GitHub.</p>
                         <span className="contact-btn">GitHub Profile</span>
                     </a>

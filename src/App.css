@@ -1,3 +1,4 @@
+/* --- Global Styles --- */
 html, body, #root, .app {
   margin: 0;
   padding: 0;
@@ -7,16 +8,39 @@ html, body, #root, .app {
   font-family: 'Ubuntu', sans-serif;
 }
 
-body.dark-mode {
-  background-color: #001f4d; /* deep blue */
-  color: white;
+html {
+    /* Enables smooth scrolling across the entire page */
+    scroll-behavior: smooth;
 }
 
+/* --- Dark Mode Body/Base Styles --- */
+body.dark-mode {
+  /* Keep the deep blue base color */
+  background-color: #001f4d; 
+  
+  
+  /* ADD DARK DOT PATTERN TO THE BODY (subtle texture) */
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px), 
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* --- Light Mode Body/Base Styles --- */
 body {
+  /* Keep the white base color */
   background-color: white;
   color: black;
+  
+  /* Subtle diagonal stripes: uses two very light shades of gray */
+  background-image: 
+    linear-gradient(to right, #e8e8e8 1px, transparent 1px), 
+    linear-gradient(to bottom, #e8e8e8 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
+
+/* --- App Container Styles --- */
 .app {
   display: flex;
   flex-direction: column;

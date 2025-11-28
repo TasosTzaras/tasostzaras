@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react'; // <-- ADDED useEffect and useRef
+import { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
 
 export default function Navbar({ darkMode, setDarkMode }) {
@@ -28,7 +28,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [dropdownOpen]); // Re-run effect when dropdownOpen state changes
+    }, [dropdownOpen]);
 
 
     return (
@@ -53,7 +53,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 {/* Projects dropdown */}
                 <div
                     className={`nav-dropdown ${dropdownOpen ? 'open' : ''}`}
-                    ref={dropdownRef} // <-- ATTACHED REF
+                    ref={dropdownRef}
                 >
                     <button
                         className="nav-btn"
@@ -64,13 +64,13 @@ export default function Navbar({ darkMode, setDarkMode }) {
                     {dropdownOpen && (
                         <div className="dropdown-menu">
                             <Link to="/projects/currency-converter" className="dropdown-item">
-                                💵 Currency Converter
+                                <i className="bi bi-currency-exchange"></i> Currency Converter
                             </Link>
                             <Link to="/projects/weather-app" className="dropdown-item">
-                                ☀️ Weather App
+                                <i className="bi bi-cloud-sun"></i> Weather App
                             </Link>
                             <Link to="/projects/moviesdb" className="dropdown-item">
-                                🎬 Movies' Data Extraction
+                                <i className="bi bi-film"></i> Movies' Data Extraction
                             </Link>
                         </div>
                     )}
@@ -79,6 +79,11 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 {/* Contact button */}
                 <Link to="/contact" className="nav-btn">
                     Contact
+                </Link>
+
+                {/* 📄 ADDED: Resume button link */}
+                <Link to="/resume" className="nav-btn">
+                    Resume
                 </Link>
 
                 {/* Dark mode toggle */}

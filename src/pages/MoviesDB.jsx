@@ -3,7 +3,7 @@ import './MoviesDB.css';
 export default function MoviesDB() {
     return (
         <div className="moviesdb-container">
-            <h2 className="moviesdb-title">🎬 Movies’ Data Extraction</h2>
+            <h2 className="moviesdb-title"><i className="bi bi-film"></i> Movies’ Data Extraction</h2>
             <p className="moviesdb-description">
                 This project focuses on extracting, cleaning, and analyzing movie-related data from online databases like IMDb and TMDb.
                 The goal is to gain insights such as rating trends, genre popularity, and revenue patterns over the years.
@@ -22,11 +22,11 @@ export default function MoviesDB() {
             <div className="moviesdb-card">
                 <h3>Key Insights</h3>
                 <p>
-                    🎥 The average IMDb rating has shown a steady decline since 2010,
+                    <i className="bi bi-film"></i> The average IMDb rating has shown a steady decline since 2010,
                     while genres like Drama and Action dominate the top-grossing movies.
                 </p>
                 <p>
-                    💡 Data-driven predictions help identify which genres perform best in specific regions and time periods.
+                    <i class="bi bi-lightbulb"></i> Data-driven predictions help identify which genres perform best in specific regions and time periods.
                 </p>
             </div>
 

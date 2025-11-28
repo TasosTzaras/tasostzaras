@@ -1,0 +1,120 @@
+/* --- Base Layout --- */
+.resume-page-content {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--box-bg, #fff); /* Uses theme color for box background */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .resume-page-content {
+    background-color: var(--dark-box, #1e1e1e);
+    color: #f5f5f5;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+
+/* --- Typography and Headings --- */
+.name-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.2rem;
+    color: var(--accent-color, #0077ff);
+    text-transform: uppercase;
+}
+
+.resume-header p {
+    font-size: 0.95rem;
+    color: var(--text-color, #555);
+}
+
+body.dark-mode .resume-header p {
+    color: #bbb;
+}
+
+.resume-section h2 {
+    font-size: 1.4rem;
+    color: var(--accent-color, #0077ff);
+    border-bottom: 2px solid var(--border-color, #ccc);
+    padding-bottom: 5px;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+body.dark-mode .resume-section h2 {
+    color: #66aaff;
+    border-bottom-color: #444;
+}
+
+/* --- Competencies Tags --- */
+.key-competencies {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.competency-tag {
+    background-color: var(--tag-bg, #eef4ff);
+    color: var(--accent-color, #0077ff);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+body.dark-mode .competency-tag {
+    background-color: #0f2a41;
+    color: #a8cfff;
+}
+
+/* --- Experience & Bullets --- */
+.experience-item {
+    margin-bottom: 1.5rem;
+}
+
+.job-title, .project-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.job-details {
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.resume-bullets, .skill-list, .cert-list {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    padding-left: 0;
+}
+
+.resume-bullets li, .skill-list li, .cert-list li {
+    margin-bottom: 0.4rem;
+}
+
+/* --- Section Grid (Education, Skills, Certs) --- */
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* --- Print Media Query (CRUCIAL for clean printing) --- */
+@media print {
+    .resume-page-content {
+        margin: 0;
+        padding: 0.5in;
+        box-shadow: none;
+        background-color: white; /* Force white background for printing */
+    }
+
+    /* Hide anything that shouldn't be printed (like the main navigation if it were included here) */
+    .resume-page-content a {
+        text-decoration: none; /* Remove underline on links when printed */
+        color: black;
+    }
+}

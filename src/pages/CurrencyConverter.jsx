@@ -44,7 +44,7 @@ export default function CurrencyConverter() {
 
   return (
     <div className="currency-converter">
-      <h2>💱Currency Converter</h2>
+      <h2><i className="bi bi-currency-exchange"></i>Currency Converter</h2>
 
       {/* Explanatory text */}
       <p className="description">

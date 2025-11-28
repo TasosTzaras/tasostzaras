@@ -35,3 +35,105 @@ body.dark-mode .full-width-box {
   color: white;
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
 }
+
+
+.detail-text {
+    /* Subtle visual separation */
+    border-left: 4px solid var(--accent-color, #0077ff);
+    padding-left: 1rem;
+    margin: 1.5rem 0 0 0;
+    /* Optional: slightly decrease font size for detailed text */
+    font-size: 0.95em; 
+}
+
+.detail-text p {
+    /* Important: Reset the margin to avoid double spacing */
+    margin: 0;
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .detail-text {
+    border-left: 4px solid #66aaff;
+}
+
+
+
+.skills-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.skills-header {
+    font-size: 1.6rem;
+    color: var(--text-color, #333);
+    margin-bottom: 1.5rem;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.skill-item {
+    background-color: var(--skill-bg, #eef4ff);
+    color: var(--skill-text, #0056b3);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    border: 1px solid var(--skill-border, #ccc);
+}
+
+.skill-item:hover {
+    transform: translateY(-2px);
+    background-color: var(--skill-hover, #d6e8ff);
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .skills-header {
+    color: #f5f5f5;
+}
+
+body.dark-mode .skill-item {
+    background-color: #2a3c50;
+    color: #a8cfff;
+    border-color: #444;
+}
+
+body.dark-mode .skill-item:hover {
+    background-color: #3b5066;
+}
+
+.highlights-list {
+    list-style-type: disc; /* Use discs for standard bullets */
+    text-align: left;
+    margin: 1rem 0 1.5rem 1.5rem; /* Indent the list */
+    padding: 0;
+}
+
+.highlights-list li {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    color: var(--text-color, #333);
+}
+
+body.dark-mode .highlights-list li {
+    color: #f5f5f5;
+}
+
+/* Horizontal rule to separate bullets from long text */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color, #ccc);
+    margin: 1.5rem 0;
+}
+
+body.dark-mode hr {
+    background-color: #444;
+}
