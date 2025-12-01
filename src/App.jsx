@@ -2,16 +2,18 @@ import { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Projects from './pages/Projects'; // your existing projects page
 import CurrencyConverter from './pages/CurrencyConverter'; // new currency converter page
 import './App.css';
 import WeatherApp from './pages/WeatherApp'; // import the new component
 import MoviesDB from './pages/MoviesDB';
 import Contact from './pages/Contact';
 import Resume from './pages/Resume';
+import SocialFloat from './components/SocialFloat';
+import CursorLight from './components/CursorLight';
+
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     if (darkMode) {
@@ -27,13 +29,14 @@ function App() {
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
           <Route path="/projects/currency-converter" element={<CurrencyConverter />} />
           <Route path="/projects/weather-app" element={<WeatherApp />} />
           <Route path="/projects/moviesdb" element={<MoviesDB />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/resume" element={<Resume />} />
         </Routes>
+        <SocialFloat />
+        <CursorLight />
       </div>
     </Router>
   );

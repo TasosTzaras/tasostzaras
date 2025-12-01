@@ -15,7 +15,7 @@
 }
 
 body.dark-mode .navbar {
-  background-color: rgba(0, 31, 77, 0.95);
+  background-color: #1a1a1a;
   color: white;
 }
 
@@ -26,6 +26,14 @@ body.dark-mode .navbar {
   cursor: pointer;
   color: #0077ff;
   transition: text-shadow 0.3s ease;
+}
+
+body.dark-mode .nav-logo{
+  color: #fbbf24;
+}
+
+body.dark-mode .nav-logo:hover{
+  text-shadow: 0 0 2px #fbbf24, 0 0 4px #fbbf24, 0 0 8px #fbbf24;
 }
 
 .nav-logo:hover {
@@ -126,7 +134,8 @@ body.dark-mode .dropdown-menu {
 }
 
 body.dark-mode .dropdown-item:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: #fbbf24;
+  color: #1a1a1a;
 }
 
 /* --- Burger Menu --- */
@@ -144,13 +153,13 @@ body.dark-mode .dropdown-item:hover {
   display: block;
   height: 3px;
   width: 100%;
-  background-color: #000;
+  background-color: #0077FF;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
 body.dark-mode .burger span {
-  background-color: #fff;
+  background-color: #fbbf24;
 }
 
 .burger.open span:nth-child(1) {
@@ -192,7 +201,7 @@ body.dark-mode .burger span {
   }
 
   body.dark-mode .nav-links {
-    background-color: rgba(0, 31, 77, 0.95);
+    background-color: #1a1a1a;
   }
   
   /* --- Dropdown Container (Projects Button) --- */

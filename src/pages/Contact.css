@@ -33,7 +33,7 @@ body.dark-mode .contact-box {
 }
 
 body.dark-mode .contact-header {
-    color: #66aaff;
+    color: #fbbf24;
 }
 
 .contact-intro {
@@ -74,7 +74,8 @@ body.dark-mode .contact-intro {
 }
 
 body.dark-mode .contact-card:hover {
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 25px rgba(204, 156, 0, 0.15);
+    color: #fbbf24;
 }
 
 .contact-card h3 {

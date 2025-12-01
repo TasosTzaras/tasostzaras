@@ -1,0 +1,37 @@
+/* --- CursorLight.css --- */
+
+.cursor-light {
+    /* 1. Positioning and Layering */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999; /* Ensure it's on top of everything */
+    pointer-events: none; /* CRITICAL: Allows clicks to pass through */
+    
+    /* 2. Shape and Size */
+    width: 100px; /* Size of the glow */
+    height: 100px;
+    border-radius: 50%;
+    
+    /* 3. Appearance (The Glow Effect) */
+    /* Use a color related to your accent color, or a bright white/cyan */
+    background-color: rgba(0, 119, 255, 0.4); 
+    filter: blur(60px); /* CRITICAL: Creates the soft, halo effect */
+    
+    /* 4. Initial Position */
+    /* Offset by half its size so the cursor is centered in the middle of the glow */
+    transform: translate(-50%, -50%); 
+    transition: background-color 0.3s ease; /* Smooth transition for dark mode */
+}
+
+/* Hide the default OS cursor if you want a cleaner look */
+/* You would add a class to the body in App.js to hide the cursor */
+/* body.hide-cursor { cursor: none; } */
+
+
+/* --- Dark Mode Adjustment --- */
+body.dark-mode .cursor-light {
+    /* Slightly change the color/opacity for dark backgrounds */
+    background-color: #fbbf24; 
+    filter: blur(60px); /* Slightly more blur in dark mode */
+}

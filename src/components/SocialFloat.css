@@ -1,0 +1,32 @@
+/* --- SocialFloat.css --- */
+
+.social-float-container {
+    position: fixed;
+    /* Anchor to the bottom-left corner */
+    bottom: 25px;
+    left: 25px;
+    z-index: 100; /* Ensure they are above all content */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between the buttons */
+}
+
+.social-float-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.dark-mode .social-float-btn{
+    color:#fbbf24;
+}
+
+.social-float-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}

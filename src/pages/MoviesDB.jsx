@@ -12,17 +12,19 @@ export default function MoviesDB() {
             <div className="moviesdb-card">
                 <h3>Project Overview</h3>
                 <ul>
-                    <li>Data collected using API requests from IMDb and TMDb.</li>
-                    <li>Preprocessing and transformation with Python (Pandas, NumPy).</li>
-                    <li>Visualization using Matplotlib and Seaborn.</li>
-                    <li>Deployed interactive dashboard for exploring movie trends.</li>
+                    <li><strong>Developed and executed a full ETL (Extract, Transform, Load) pipeline</strong> using Python, successfully gathering data on the Top 50 highest-rated movies from a professional public API (TMDB)</li>
+                    <li><strong>Structured and normalized complex, nested JSON data</strong> into a clean, relational database schema (SQLite) suitable for advanced querying and long-term storage</li>
+                    <li><strong>Demonstrated strong data quality control</strong> by implementing Python logic to clean the data, standardize date formats, and filter out incomplete records (e.g., movies without an identified director)</li>
+                    <li><strong>Performed detailed data refinement</strong> by processing film credits to accurately isolate the unique Director and extract the Top 10 Actors for every movie in the dataset</li>
+                    <li><strong>Executed advanced SQL analysis</strong> using joins, aggregations, and Common Table Expressions (CTEs) to derive meaningful business insights, such as calculating the average performance rating per director and identifying key genre trends</li>
+                    <li><strong>Utilized a robust technical stack</strong> including <code>requests</code> for API interaction, <code>pandas</code> for data manipulation, and <code>sqlalchemy</code>/<code>sqlite3</code> for database management and analytical querying</li>
                 </ul>
             </div>
 
             <div className="moviesdb-card">
                 <h3>Key Insights</h3>
                 <p>
-                    <i className="bi bi-film"></i> The average IMDb rating has shown a steady decline since 2010,
+                    <i className="bi bi-film"></i> The average TMDb rating has shown a steady decline since 2010,
                     while genres like Drama and Action dominate the top-grossing movies.
                 </p>
                 <p>

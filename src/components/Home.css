@@ -1,68 +1,153 @@
+/* --- Home.css LAYOUT (Final Stacked Centered Layout with Top Row Flex) --- */
+
 .home-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* Centers all content horizontally */
   width: 100%;
-  flex-grow: 1; /* this makes it take remaining space */
+  flex-grow: 1; 
   gap: 40px;
-  padding: 40px 20px 100px 20px; /* bottom padding for hover space */
+  padding: 40px 20px 100px 20px;
   box-sizing: border-box;
 }
 
+/* --- NEW: Wrapper for Horizontal Top Content (Profile Box + Skills) --- */
+.top-row-flex {
+    width: 100%;
+    max-width: 1200px; /* Match max-width of other boxes */
+    display: flex;
+    flex-direction: column; /* Default: Stack vertically on mobile */
+    align-items: center; /* Center content when stacked */
+    gap: 40px;
+    padding: 20px 20px 20px 20px;
+}
+
+/* Desktop View: Items Side-by-Side */
+@media (min-width: 900px) {
+    .top-row-flex {
+        flex-direction: row; /* Switch to horizontal layout */
+        align-items: flex-start; /* Align content to the top */
+        justify-content: center; /* Center the whole row */
+        gap: 60px; /* Space between the box and skills */
+    }
+    
+    /* Make the skills container occupy the remaining space */
+    .skills-container {
+        /* Remove original centering margin to fit in the row */
+        margin: 0; 
+        /* Allow skills to grow and align to the left side of their column */
+        text-align: left; 
+    }
+}
 
 
-/* Full-width info boxes */
+/* --- Full-width info boxes --- */
 .full-width-box {
-  /* width: 100%; */
-  max-width: 1200px; /* keeps content centered and readable */
-  padding: 40px 60px; /* internal padding for text */
-  margin: 0 auto; /* center horizontally */
+  max-width: 1200px; 
+  width: 100%; 
+  padding: 40px 60px; 
+  margin: 0 auto; 
   background-color: rgba(240, 240, 240, 0.95);
   color: #000;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  box-sizing: border-box; 
 }
 
 /* Optional hover effect */
 .full-width-box:hover {
   transform: translateY(-5px);
+  will-change: transform; /* Hardware acceleration for smooth animation */
 }
 
 /* Dark mode adjustments */
 body.dark-mode .full-width-box {
-  background-color: rgba(0, 31, 77, 0.9);
+  background-color: #1a1a1a;
   color: white;
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 20px rgba(223, 200, 0, 0.493); 
 }
 
 
+/* --- Readability & Blockquotes --- */
+
 .detail-text {
-    /* Subtle visual separation */
     border-left: 4px solid var(--accent-color, #0077ff);
     padding-left: 1rem;
     margin: 1.5rem 0 0 0;
-    /* Optional: slightly decrease font size for detailed text */
     font-size: 0.95em; 
 }
 
+body.dark-mode .detail-text {
+    border-left: 4px solid var(--accent-color, #fbbf24);
+}
+
 .detail-text p {
-    /* Important: Reset the margin to avoid double spacing */
     margin: 0;
 }
 
-/* Dark Mode Adjustments */
-body.dark-mode .detail-text {
-    border-left: 4px solid #66aaff;
+
+/* --- Highlights List (Custom Arrow Markers) --- */
+
+.highlights-list {
+    list-style-type: none; 
+    text-align: left;
+    margin: 1rem 0 1.5rem 0; 
+    padding: 0;
+}
+
+.highlights-list li {
+    position: relative;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    color: var(--text-color, #333);
+    padding-left: 1.5rem; 
+}
+
+/* Add the custom arrow marker (using pseudo-element) */
+.highlights-list li::before {
+    content: '➤'; 
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-color, #0077ff); 
+    font-weight: bold;
+    font-size: 0.8em; 
+    margin-top: 2px;
+}
+
+body.dark-mode .highlights-list li {
+    color: #f5f5f5;
+}
+
+/* Dark Mode Adjustment for Arrow Color */
+body.dark-mode .highlights-list li::before {
+    color: var(--accent-color, #fbbf24);
 }
 
 
+/* Horizontal rule to separate bullets from long text */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color, #ccc);
+    margin: 1.5rem 0;
+}
+
+body.dark-mode hr {
+    background-color: #444;
+}
+
+/* --- Skills Section Styles (Inside the top-row-flex) --- */
 
 .skills-container {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 1rem 0;
-    text-align: center;
+    max-width: 400px;
+    max-height: 700px;
+    /* Margin needs to be reset for the flex row */
+    margin: 0; 
+    padding: 1rem 1rem;
+    /* padding: 25px 25px 60px 60px; */
+    text-align: center; /* Keep centered for mobile, flex-start on desktop via media query */
 }
 
 .skills-header {
@@ -74,10 +159,12 @@ body.dark-mode .detail-text {
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    /* Align skills to the left within the desktop flex row */
+    justify-content: flex-start; 
     gap: 10px;
 }
 
+/* ... (Rest of existing skills and expand button styling remains the same) ... */
 .skill-item {
     background-color: var(--skill-bg, #eef4ff);
     color: var(--skill-text, #0056b3);
@@ -100,40 +187,54 @@ body.dark-mode .skills-header {
 }
 
 body.dark-mode .skill-item {
-    background-color: #2a3c50;
-    color: #a8cfff;
+    background-color: #fbbf24;
+    color: #1a1a1a;
     border-color: #444;
 }
 
 body.dark-mode .skill-item:hover {
     background-color: #3b5066;
 }
-
-.highlights-list {
-    list-style-type: disc; /* Use discs for standard bullets */
-    text-align: left;
-    margin: 1rem 0 1.5rem 1.5rem; /* Indent the list */
-    padding: 0;
+/* Ensure icons within skills have space */
+.skill-item i {
+    margin-right: 0.3rem;
 }
 
-.highlights-list li {
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-    color: var(--text-color, #333);
+/* --- Expand Button Styles --- */
+.expand-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid var(--accent-color, #0077ff);
+    color: var(--accent-color, #0077ff);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s;
+    width: 250px; 
+    margin-left: auto; 
+    margin-right: auto;
 }
 
-body.dark-mode .highlights-list li {
-    color: #f5f5f5;
+.expand-btn i {
+    font-size: 0.9em;
+    margin-right: 0.5rem;
+    transition: transform 0.2s;
 }
 
-/* Horizontal rule to separate bullets from long text */
-hr {
-    border: 0;
-    height: 1px;
-    background-color: var(--border-color, #ccc);
-    margin: 1.5rem 0;
+.expand-btn:hover {
+    background-color: rgba(0, 119, 255, 0.1);
 }
 
-body.dark-mode hr {
-    background-color: #444;
+/* Dark Mode Button Styling */
+body.dark-mode .expand-btn {
+    border-color: var(--accent-color, #fbbf24);
+    color: var(--accent-color, #fbbf24);
+}
+
+body.dark-mode .expand-btn:hover {
+    background-color: rgba(255, 232, 102, 0.281);
 }

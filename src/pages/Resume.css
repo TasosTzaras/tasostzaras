@@ -24,6 +24,10 @@ body.dark-mode .resume-page-content {
     text-transform: uppercase;
 }
 
+body.dark-mode .name-title{
+    color:#fbbf24
+}
+
 .resume-header p {
     font-size: 0.95rem;
     color: var(--text-color, #555);
@@ -43,7 +47,7 @@ body.dark-mode .resume-header p {
 }
 
 body.dark-mode .resume-section h2 {
-    color: #66aaff;
+    color: #fbbf24;
     border-bottom-color: #444;
 }
 
@@ -65,8 +69,8 @@ body.dark-mode .resume-section h2 {
 }
 
 body.dark-mode .competency-tag {
-    background-color: #0f2a41;
-    color: #a8cfff;
+    background-color: #fbbf24;
+    color: #1a1a1a;
 }
 
 /* --- Experience & Bullets --- */
